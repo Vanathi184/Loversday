@@ -308,17 +308,17 @@
             0%,
             100% {
                 text-shadow:
-                    0 0 20px rgba(255, 105, 180, 0.8),
-                    0 0 40px rgba(255, 105, 180, 0.6),
-                    0 0 60px rgba(255, 105, 180, 0.4),
+                    0 0 20px rgba(59, 130, 246, 0.8),
+                    0 0 40px rgba(59, 130, 246, 0.6),
+                    0 0 60px rgba(59, 130, 246, 0.4),
                     0 5px 15px rgba(0, 0, 0, 0.3);
             }
 
             50% {
                 text-shadow:
-                    0 0 30px rgba(255, 105, 180, 1),
-                    0 0 60px rgba(255, 105, 180, 0.8),
-                    0 0 90px rgba(255, 105, 180, 0.6),
+                    0 0 30px rgba(59, 130, 246, 1),
+                    0 0 60px rgba(59, 130, 246, 0.8),
+                    0 0 90px rgba(59, 130, 246, 0.6),
                     0 5px 15px rgba(0, 0, 0, 0.3);
             }
         }
@@ -394,6 +394,68 @@
                 0 15px 50px rgba(59, 130, 246, 0.4),
                 inset 0 1px 0 rgba(255, 255, 255, 0.3);
             border-color: rgba(187, 222, 251, 0.4);
+        }
+
+        /* ========================================
+           PHOTO SECTION
+        ======================================== */
+        .photo-section {
+            padding: 60px 0;
+            text-align: center;
+            min-height: auto;
+        }
+
+        .photo-frame {
+            width: clamp(280px, 40vw, 400px);
+            aspect-ratio: 1/1.4;
+            margin: 0 auto;
+            border-radius: 30px;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow:
+                0 25px 50px rgba(0, 0, 0, 0.4),
+                0 0 30px rgba(59, 130, 246, 0.2);
+            transform: rotate(-3deg);
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .photo-frame:hover {
+            transform: rotate(0deg) scale(1.03);
+            border-color: rgba(59, 130, 246, 0.5);
+            box-shadow:
+                0 35px 70px rgba(0, 0, 0, 0.5),
+                0 0 50px rgba(59, 130, 246, 0.4);
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+            display: block;
+        }
+
+        .photo-frame::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.2),
+                    transparent);
+            transition: 0.5s;
+        }
+
+        .photo-frame:hover::after {
+            left: 100%;
+            transition: 0.7s;
         }
 
         /* ========================================
@@ -1513,7 +1575,7 @@
             justify-content: center;
             padding: 30px;
             text-align: center;
-            background: linear-gradient(135deg, rgba(255, 107, 157, 0.1), rgba(255, 182, 193, 0.1));
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(187, 222, 251, 0.1));
         }
 
         .reveal-icon {
@@ -1524,7 +1586,7 @@
         .reveal-title {
             font-family: 'Playfair Display', serif;
             font-size: 1.8rem;
-            color: #ff6b9d;
+            color: #3b82f6;
             margin-bottom: 15px;
         }
 
@@ -1588,6 +1650,15 @@
             <div class="name-hearts">💎</div>
             <h2 class="beloved-name">Sabari Rajan</h2>
             <div class="name-hearts">💎</div>
+        </div>
+    </section>
+
+    <!-- Photo Section -->
+    <section class="photo-section">
+        <div class="container">
+            <div class="photo-frame">
+                <img src="pic.png" alt="Sabari Rajan and his girl">
+            </div>
         </div>
     </section>
 
